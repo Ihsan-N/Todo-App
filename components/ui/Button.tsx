@@ -1,0 +1,36 @@
+"use client";
+
+import clsx from "clsx";
+import { ReactNode } from "react";
+
+interface buttonProps {
+  type?: "button" | "submit" | "reset";
+  text: string | ReactNode;
+  onClick?: () => void;
+  actionButton?: boolean;
+}
+
+const Button = ({
+  type,
+  text,
+  onClick,
+  actionButton,
+}: buttonProps) => {
+  return (
+    <>
+      <button
+        onClick={onClick}
+        type={type}
+        className={clsx(
+          actionButton &&
+            `bg-gradient-to-r from-[#091E3A] via-[#2F80ED] to-[#2D9EE0] rounded-full p-2 text-white`,
+          `bg-gradient-to-r from-[#091E3A] via-[#2F80ED] to-[#2D9EE0] px-2 text-white`
+        )}
+      >
+        {text}
+      </button>
+    </>
+  );
+};
+
+export default Button;
